@@ -1,6 +1,6 @@
 {
   "name": "slackin",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "description": "Public Slack organizations made easy",
   "repository": "rauchg/slackin",
   "main": "dist/index",
@@ -58,6 +58,15 @@
   },
   "scripts": {
     "test": "mocha && eslint lib/**",
-    "postinstall": "gulp"
+    "postinstall": "gulp",
+    "build": "gulp",
+    "start": "chmod +x bin/slackin && ./bin/slackin"
+  },
+  "now": {
+    "files": [
+      "bin",
+      "lib",
+      "gulpfile.babel.js"
+    ]
   }
 }
