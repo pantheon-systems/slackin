@@ -1,6 +1,6 @@
 {
   "name": "slackin",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "Public Slack organizations made easy",
   "repository": "rauchg/slackin",
   "main": "dist/index",
@@ -22,17 +22,16 @@
     "babel-register": "6.9.0",
     "body-parser": "1.10.2",
     "cors": "2.7.1",
-    "debug": "2.1.1",
+    "debug": "3.0.1",
     "email-regex": "1.0.0",
-    "express": "4.11.0",
-    "express-sslify": "^1.2.0",
-    "gulp": "3.9.0",
+    "express": "4.15.4",
     "gulp-babel": "6.1.1",
     "gulp-rimraf": "0.2.0",
+    "gulp": "3.9.0",
     "hostenv": "1.0.1",
     "opentype.js": "0.4.4",
-    "socket.io": "1.4.8",
-    "superagent": "0.21.0",
+    "socket.io": "2.0.3",
+    "superagent": "3.6.0",
     "vd": "0.1.0"
   },
   "license": "MIT",
@@ -44,7 +43,7 @@
     "supertest": "0.15.0"
   },
   "engines": {
-    "node": "4.5.0"
+    "node": "6.11.1"
   },
   "bin": {
     "slackin": "./bin/slackin"
@@ -55,4 +54,25 @@
     "rules": {
       "no-var": 0
     }
+  },
+  "scripts": {
+    "test": "mocha && eslint lib/**",
+    "postinstall": "gulp",
+    "build": "gulp",
+    "start": "chmod +x bin/slackin && ./bin/slackin"
+  },
+  "now": {
+    "type": "npm",
+    "files": [
+      "bin",
+      "lib",
+      "gulpfile.babel.js"
+    ],
+    "env": [
+      "SLACK_API_TOKEN",
+      "SLACK_SUBDOMAIN",
+      "GOOGLE_CAPTCHA_SECRET",
+      "GOOGLE_CAPTCHA_SITEKEY"
+    ]
+  }
 }
